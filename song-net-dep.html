@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sống Nét Đẹp – Cẩm nang ứng xử số và phòng chống bắt nạt mạng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Inter:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#f1efe9; --card:#fbfaf7; --ink:#1b1b1b; --muted:#555; --red:#e8401c; --blue:#1f8fd6; --yellow:#ffd84d;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1c1b19;--card:#262522;--ink:#f1efe9;--muted:#b9b6ae;--red:#ff6a47;--blue:#52b6f2;--yellow:#e8c43c;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#1c1b19;--card:#262522;--ink:#f1efe9;--muted:#b9b6ae;--red:#ff6a47;--blue:#52b6f2;--yellow:#e8c43c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;overflow-x:hidden;background:var(--paper);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;
+  background-image:radial-gradient(circle at 20% 10%,rgba(127,127,127,.10),transparent 40%),radial-gradient(circle at 80% 70%,rgba(127,127,127,.08),transparent 45%)}
+main{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+h1,h2,h3{font-family:"Baloo 2",Inter,sans-serif;line-height:1.15;margin:0}
+.school{font-size:13px;color:var(--muted);margin:0 0 18px}
+.hero{border:3px dashed var(--ink);border-radius:18px;background:var(--card);padding:28px 22px;transform:rotate(-.6deg);margin-bottom:28px}
+.hero h1{font-size:clamp(40px,10vw,68px);font-weight:800;letter-spacing:-.01em}
+.hero h1 .r{color:var(--red)} .hero h1 .b{color:var(--blue)}
+.hero p{margin:10px 0 0;max-width:46ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);border-radius:12px;padding:10px;background:var(--paper)}
+.stat b{display:block;font:800 30px/1 "Baloo 2",sans-serif;color:var(--red)}
+.stat span{font-size:13px;color:var(--muted);line-height:1.3;display:block;margin-top:4px}
+section{border:3px dashed var(--ink);border-radius:18px;background:var(--card);padding:22px;margin:0 0 22px}
+section:nth-of-type(even){transform:rotate(.4deg)}
+h2{font-size:30px;font-weight:800;margin-bottom:10px}
+h2 .r{color:var(--red)} h2 .b{color:var(--blue)}
+ul{padding-left:20px;margin:8px 0} li{margin:6px 0}
+ol{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+ol li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;margin:12px 0}
+ol li::before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font:800 17px/32px "Baloo 2",sans-serif;text-align:center}
+mark{background:var(--yellow);color:#1b1b1b;padding:0 4px;border-radius:3px}
+.quiz{margin-top:12px}
+.q{border:2px solid var(--ink);border-radius:12px;padding:14px;margin:12px 0;background:var(--paper)}
+.q p{margin:0 0 10px;font-weight:500}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:700 15px Inter,sans-serif;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);padding:9px 14px;cursor:pointer;min-height:44px}
+button:hover{background:var(--yellow);color:#1b1b1b}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.fb{margin:10px 0 0;font-size:15px;display:none}
+.fb.show{display:block}
+.ok{color:#1e7f3c;font-weight:700}.no{color:var(--red);font-weight:700}
+@media (prefers-color-scheme:dark){.ok{color:#6fd68f}}
+details{border-top:2px dashed var(--muted);padding:10px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:700;min-height:32px}
+.pledge{text-align:center;background:var(--yellow);color:#1b1b1b;border-color:#1b1b1b}
+.pledge h2{color:#1b1b1b}
+footer{text-align:center;font-size:13px;color:var(--muted);margin-top:24px}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.hero{transform:none}section:nth-of-type(even){transform:none}}
+@media (prefers-reduced-motion:no-preference){.hero{animation:pop .5s ease-out both}@keyframes pop{from{opacity:0;transform:rotate(-.6deg) scale(.97)}to{opacity:1;transform:rotate(-.6deg) scale(1)}}}
+.hero,section{position:relative}
+.hero::before,section::before{content:"";position:absolute;top:-13px;left:50%;width:92px;height:26px;margin-left:-46px;background:rgba(255,216,77,.8);border-left:2px dotted rgba(0,0,0,.25);border-right:2px dotted rgba(0,0,0,.25);transform:rotate(-3deg);z-index:2}
+section:nth-of-type(even)::before{transform:rotate(3deg);background:rgba(31,143,214,.55)}
+h2{text-decoration:underline wavy var(--yellow) 3px;text-underline-offset:7px}
+.pledge h2{text-decoration:none}
+.school{padding-right:100px}
+.sticker{position:absolute;pointer-events:none;user-select:none;z-index:3}
+.cat{width:84px;height:84px}
+.hero .cat{width:100px;height:100px;top:-40px;right:12px}
+.bubble{font:800 20px/1.2 "Baloo 2",sans-serif;background:#fff;color:#1b1b1b;border:3px solid #1b1b1b;border-radius:50% 50% 50% 8px;padding:6px 14px;transform:rotate(8deg)}
+.stamp{font:800 24px/1.2 "Baloo 2",sans-serif;color:var(--red);border:4px solid var(--red);border-radius:8px;padding:0 10px;background:rgba(255,255,255,.7);transform:rotate(-9deg)}
+.heart{font-size:34px;line-height:1}
+.tr{top:-24px;right:-4px}.tl{top:-24px;left:-4px}.br{bottom:-18px;right:10px}.bl{bottom:-18px;left:10px}
+.sp{top:-6px;right:14px;font-size:26px;line-height:1}
+@media (prefers-reduced-motion:no-preference){.hero .cat{animation:wob 3.2s ease-in-out infinite}@keyframes wob{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}}
+@media (max-width:520px){.cat{width:64px;height:64px}.hero .cat{width:76px;height:76px;top:-30px}.bubble{font-size:16px}.stamp{font-size:19px}.school{padding-right:84px}}
+@media (min-width:900px){
+body{font-size:18px}
+main{max-width:1120px;display:grid;grid-template-columns:1fr 1fr;gap:38px 30px;padding:28px 24px 72px;align-items:stretch}
+main>.school,main>.hero,main>.pledge,main>footer{grid-column:1/-1}
+main>section{margin:0}
+main>footer{margin-top:0}
+.hero{padding:38px 44px}
+.hero h1{font-size:88px}
+.hero p{font-size:20px;max-width:52ch}
+.stats{max-width:680px}
+h2{font-size:34px}
+}
+</style>
+</head>
+<body>
+<main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="cat" viewBox="0 0 100 100"><path d="M16 42 L21 8 L46 25 Z M84 42 L79 8 L54 25 Z" fill="#cfcfcf" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/><ellipse cx="50" cy="58" rx="38" ry="34" fill="#cfcfcf" stroke="#1b1b1b" stroke-width="4"/><path d="M42 30 v8 M50 28 v9 M58 30 v8" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"/><circle cx="35" cy="54" r="5" fill="#1b1b1b"/><circle cx="65" cy="54" r="5" fill="#1b1b1b"/><path d="M46 63 h8 l-4 5 z" fill="#e8401c"/><path d="M50 68 q-5 8 -12 3 M50 68 q5 8 12 3" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"/><path d="M10 60 l16 3 M10 70 l16 -2 M90 60 l-16 3 M90 70 l-16 -2" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/></symbol></svg>
+<p class="school">Trường Đại học Công nghệ Kỹ thuật Hưng Yên · Nhóm 7</p>
+
+<header class="hero">
+  <svg class="sticker cat" aria-hidden="true"><use href="#cat"/></svg>
+  <span class="sticker bubble bl" aria-hidden="true">@#$!</span>
+  <h1><span class="r">Sống</span> <span class="b">Nét Đẹp</span></h1>
+  <p>Cẩm nang ứng xử số và phòng chống bắt nạt trên mạng dành cho sinh viên.</p>
+  <div class="stats">
+    <div class="stat"><b>93,6%</b><span>sinh viên từng chứng kiến bắt nạt trên mạng</span></div>
+    <div class="stat"><b>8,3%</b><span>từng trực tiếp bị bắt nạt</span></div>
+    <div class="stat"><b>75%</b><span>không biết tìm ai giúp khi bị bắt nạt</span></div>
+  </div>
+</header>
+
+<section id="nhan-dien">
+  <span class="sticker heart tr" aria-hidden="true">💔</span>
+  <h2>Nhận diện <span class="r">bắt nạt</span> trên mạng</h2>
+  <p>Bắt nạt trên mạng là cố tình làm người khác tổn thương hoặc xấu hổ qua tin nhắn, bình luận, hình ảnh hay video. Một trò đùa chỉ là đùa khi <mark>cả hai bên cùng thoải mái</mark>.</p>
+  <ul>
+    <li>Chế giễu ngoại hình, giọng nói, hoàn cảnh của người khác.</li>
+    <li>Đe dọa, chửi bới, xúc phạm trong bình luận hoặc nhóm chat.</li>
+    <li>Lan truyền tin đồn, ảnh hoặc thông tin riêng tư.</li>
+    <li>Cô lập, loại ai đó khỏi nhóm, hùa theo đám đông để chê bai.</li>
+  </ul>
+</section>
+
+<section id="thu-suc">
+  <svg class="sticker cat br" aria-hidden="true"><use href="#cat"/></svg>
+  <h2>Thử sức: <span class="b">đùa</span> hay <span class="r">bắt nạt</span>?</h2>
+  <p>Chọn đáp án cho từng tình huống.</p>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section id="ung-xu">
+  <span class="sticker heart tr" aria-hidden="true">💙</span>
+  <h2>Quy tắc ứng xử <span class="b">văn minh</span></h2>
+  <ul>
+    <li><b>Nghĩ trước khi đăng.</b> Hỏi mình: nếu người ấy đọc được, họ sẽ thấy thế nào?</li>
+    <li><b>Tôn trọng sự khác biệt.</b> Không bình luận về ngoại hình hay chuyện cá nhân của người khác.</li>
+    <li><b>Bình tĩnh trước khi trả lời.</b> Đang bực thì chưa nên gõ phím.</li>
+    <li><b>Không chia sẻ</b> tin đồn, ảnh riêng tư khi chưa được phép.</li>
+    <li><b>Dám nói “dừng lại”</b> khi thấy lời nói vượt quá giới hạn.</li>
+  </ul>
+</section>
+
+<section id="bi-bat-nat">
+  <span class="sticker stamp tr" aria-hidden="true">STOP</span>
+  <h2>Khi <span class="r">bạn</span> bị bắt nạt</h2>
+  <p>Bạn không có lỗi. Hãy làm lần lượt:</p>
+  <ol>
+    <li><div><b>Giữ bình tĩnh, chưa đáp trả.</b> Phản ứng nóng thường làm mọi chuyện tệ hơn.</div></li>
+    <li><div><b>Lưu bằng chứng.</b> Chụp màn hình tin nhắn, bình luận, kèm tên tài khoản và thời gian.</div></li>
+    <li><div><b>Chặn và báo cáo</b> tài khoản hoặc nội dung vi phạm trên nền tảng.</div></li>
+    <li><div><b>Kể với người tin cậy:</b> bạn thân, người thân, giảng viên hoặc cố vấn học tập.</div></li>
+    <li><div><b>Tìm bộ phận hỗ trợ của trường</b> khi sự việc nghiêm trọng hoặc kéo dài.</div></li>
+  </ol>
+</section>
+
+<section id="chung-kien">
+  <span class="sticker bubble tr" aria-hidden="true">Mình ở đây!</span>
+  <h2>Khi <span class="b">bạn</span> chứng kiến</h2>
+  <ul>
+    <li>Đừng hùa theo, đừng thả tim hay chia sẻ nội dung xúc phạm.</li>
+    <li>Nhắn riêng hỏi thăm người bị bắt nạt: “Bạn ổn không? Mình ở đây.”</li>
+    <li>Báo cáo nội dung vi phạm lên nền tảng.</li>
+    <li>Nếu an toàn, hãy nhẹ nhàng nhắc người đăng dừng lại.</li>
+    <li>Giúp bạn ấy tìm đến người có thể hỗ trợ.</li>
+  </ul>
+</section>
+
+<section id="hoi-dap">
+  <svg class="sticker cat tr" aria-hidden="true"><use href="#cat"/></svg>
+  <h2>Hỏi nhanh, đáp gọn</h2>
+  <details><summary>Mình có nên đáp trả lại không?</summary><p>Thường là không. Hãy lưu bằng chứng, chặn và báo cáo trước. Đáp trả dễ khiến bạn bị kéo vào cuộc cãi vã.</p></details>
+  <details><summary>Chặn rồi có đủ không?</summary><p>Chặn giúp bạn yên tĩnh hơn, nhưng nếu hành vi nghiêm trọng hoặc lặp lại, hãy kể với người tin cậy và tìm bộ phận hỗ trợ của trường.</p></details>
+  <details><summary>Mình chỉ đứng xem thì có sao không?</summary><p>Im lặng hay hùa theo đều có thể làm người bị bắt nạt cô đơn hơn. Một tin nhắn hỏi thăm đã là cách giúp đỡ.</p></details>
+</section>
+
+<section class="pledge">
+  <span class="sticker sp" aria-hidden="true">✨</span>
+  <h2>Cam kết Sống Nét Đẹp</h2>
+  <p>Mình sẽ nghĩ trước khi đăng, tôn trọng sự khác biệt, và dám nói “dừng lại”.</p>
+</section>
+
+<footer>
+  <svg class="cat" aria-hidden="true" style="display:block;margin:0 auto 6px"><use href="#cat"/></svg>© Nhóm 7, Lớp 122265 – Cẩm nang “Sống Nét Đẹp”. Bản mẫu phục vụ học phần.</footer>
+</main>
+
+<script>
+const Q=[
+ {t:"Cả nhóm chat cười chê giọng nói của một bạn khi bạn ấy nói tiếng Anh, bạn ấy im lặng và rời nhóm.",a:"bn",e:"Bắt nạt. Người bị chê không thoải mái và đã phải rời đi."},
+ {t:"Hai người bạn thân trêu nhau về một kỷ niệm vui, cả hai cùng cười và gửi sticker.",a:"dua",e:"Đùa vui. Cả hai bên đều thoải mái."},
+ {t:"Một tài khoản ẩn danh đăng ảnh riêng tư của bạn cùng lớp kèm lời chế giễu, nhiều người chia sẻ lại.",a:"bn",e:"Bắt nạt. Lan truyền ảnh riêng tư và chế giễu gây tổn thương nghiêm trọng."}
+];
+const box=document.getElementById("quiz");
+Q.forEach((q,i)=>{
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML='<p>'+q.t+'</p><div class="btns"><button data-v="dua">Đùa vui</button><button data-v="bn">Bắt nạt</button></div><p class="fb" role="status"></p>';
+  d.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    const f=d.querySelector(".fb"),right=b.dataset.v===q.a;
+    f.className="fb show";
+    f.innerHTML='<span class="'+(right?'ok':'no')+'">'+(right?"Chính xác! ":"Chưa đúng. ")+'</span>'+q.e;
+  }));
+  box.appendChild(d);
+});
+</script>
+</body>
+</html>
